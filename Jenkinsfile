@@ -1,5 +1,31 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18-alpine'
+        }
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+    }
+}
+
 
     environment {
         IMAGE_NAME = "jenkins-cd-demo"
