@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "jenkins-cd-demo"
-        DOCKERHUB_USER = "your_dockerhub_user"
+        DOCKERHUB_USER = "oshergildavid"
     }
 
     stages {
